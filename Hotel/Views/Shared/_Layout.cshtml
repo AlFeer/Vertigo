@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+          integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="icon" href="/assets/images/72a7f233ba370e807553b5e1a423ba32.png">
+    <script src="https://kit.fontawesome.com/2914d5f44a.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script>
+    <title>Vertigo</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="brand-title"><a class="logo" asp-controller="Home" asp-action="index">Vertigo</a></div>
+                <a href="#" class="toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </a>
+                <div class="navbar-links">
+                    <ul>
+                        <li>
+                            <a asp-controller="Home" asp-action="index">Home</a>
+                        </li>
+                        <li>
+                            <a asp-controller="hotels" asp-action="index">Hotels</a>
+                        </li>
+                        <li>
+                            <a asp-controller="about" asp-action="index">About</a>
+                        </li>
+                        <li>
+                            <a asp-controller="faq" asp-action="index">FAQ</a>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+					{
+						<li>
+							<a class="nav-link text-light" style="font-size:16px;" asp-controller="account" asp-area="profile">@User.Identity.Name</a>
+						</li>
+						<li>
+							<a class="nav-link"  asp-controller="account" asp-action="logout"  style="font-size:16px; color: rgb(247, 169, 12);">LOGOUT</a>
+						</li>
+					}
+					else
+					{
+						
+                        <li>
+                            <a class="btn" asp-controller="account" asp-action="login" style="font-size:16px; color: rgb(247, 169, 12);">Sign In</a>
+                        </li>
+                        <li>
+                            <a class="btn" asp-controller="account" asp-action="register" style="font-size:16px; color: rgb(247, 169, 12);">Sign Up</a>
+                        </li>
+					}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    @RenderBody()
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="topic"><b>Company</b></p>
+                    <a href="/about.html" class="list">
+                        <p>About Us</p>
+                    </a>
+                    <a href="/blogs.html" class="list">
+                        <p>Blogs</p>
+                    </a>
+                    <a href="/faq.html" class="list">
+                        <p>FAQ</p>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <p class="topic"><b>Social</b></p>
+                    <span>
+                        <a href="https://www.facebook.com/" target="blank">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="20" fill="#3D52A6"></rect>
+                                <path d="M21.0417 17.3959V15.3126C21.0417 14.7376 21.5084 14.2709 22.0834 14.2709H23.125V11.6667H21.0417C19.3157 11.6667 17.9167 13.0657 17.9167 14.7917V17.3959H15.8334V20.0001H17.9167V28.3334H21.0417V20.0001H23.125L24.1667 17.3959H21.0417Z"
+                                      fill="white"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/" target="blank">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="20" fill="#D9498C"></rect>
+                                <path d="M23.125 11.6667H16.875C13.9989 11.6667 11.6666 13.999 11.6666 16.8751V23.1251C11.6666 26.0011 13.9989 28.3334 16.875 28.3334H23.125C26.001 28.3334 28.3333 26.0011 28.3333 23.1251V16.8751C28.3333 13.999 26.001 11.6667 23.125 11.6667ZM26.7708 23.1251C26.7708 25.1355 25.1354 26.7709 23.125 26.7709H16.875C14.8645 26.7709 13.2291 25.1355 13.2291 23.1251V16.8751C13.2291 14.8647 14.8645 13.2292 16.875 13.2292H23.125C25.1354 13.2292 26.7708 14.8647 26.7708 16.8751V23.1251Z"
+                                      fill="white"></path>
+                                <path d="M20 15.8334C17.6989 15.8334 15.8333 17.699 15.8333 20.0001C15.8333 22.3011 17.6989 24.1667 20 24.1667C22.301 24.1667 24.1666 22.3011 24.1666 20.0001C24.1666 17.699 22.301 15.8334 20 15.8334ZM20 22.6042C18.5645 22.6042 17.3958 21.4355 17.3958 20.0001C17.3958 18.5636 18.5645 17.3959 20 17.3959C21.4354 17.3959 22.6041 18.5636 22.6041 20.0001C22.6041 21.4355 21.4354 22.6042 20 22.6042Z"
+                                      fill="white"></path>
+                                <path d="M24.4792 16.0761C24.7858 16.0761 25.0344 15.8275 25.0344 15.5209C25.0344 15.2143 24.7858 14.9657 24.4792 14.9657C24.1725 14.9657 23.924 15.2143 23.924 15.5209C23.924 15.8275 24.1725 16.0761 24.4792 16.0761Z"
+                                      fill="white"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.twitter.com/" target="blank">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                 width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect width="40" height="40" rx="20" fill="#58B1F7"></rect>
+                                <path d="M28.5878 14.6732C27.9489 14.9534 27.2682 15.1392 26.5585 15.2294C27.2886 14.7935 27.8459 14.1084 28.1079 13.2827C27.4271 13.6886 26.6755 13.9753 25.8745 14.1353C25.2281 13.447 24.3069 13.0208 23.3019 13.0208C21.352 13.0208 19.7823 14.6034 19.7823 16.5436C19.7823 16.8228 19.8059 17.0912 19.8639 17.3468C16.9358 17.204 14.3449 15.8006 12.6044 13.6628C12.3006 14.19 12.1223 14.7935 12.1223 15.4431C12.1223 16.6628 12.7505 17.744 13.6868 18.37C13.1209 18.3593 12.5658 18.195 12.0955 17.9362C12.0955 17.947 12.0955 17.9609 12.0955 17.9749C12.0955 19.6864 13.3163 21.108 14.9172 21.4355C14.6306 21.5139 14.3181 21.5514 13.9938 21.5514C13.7684 21.5514 13.5407 21.5386 13.3271 21.4913C13.7834 22.8861 15.0783 23.9115 16.618 23.9448C15.4197 24.8821 13.8983 25.4469 12.2512 25.4469C11.9624 25.4469 11.6853 25.434 11.4083 25.3986C12.9684 26.4046 14.8174 26.9791 16.8113 26.9791C23.2922 26.9791 26.8355 21.6105 26.8355 16.957C26.8355 16.8013 26.8301 16.651 26.8226 16.5017C27.5216 16.0057 28.1089 15.3862 28.5878 14.6732Z"
+                                      fill="white"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.vk.com/" target="blank">
+                            <img class="vk"
+                                 src="/assets/images/Logo/Vk_Logo.svg.png" alt="">
+                        </a>
+                    </span>
+                </div>
+            </div>
+            <hr class="hr">
+            <div class="copyright">
+                <span>© Copyright 2022</span>
+                <img class="payment" src="/assets/images/Logo/Frame-3182.svg" alt="">
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/faq.js"></script>
+    <script src="/assets/js/carousel.js"></script>
+</body>
+
+</html>

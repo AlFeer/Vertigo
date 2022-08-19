@@ -1,0 +1,28 @@
+﻿@model SomeBlog
+
+<div class="col-md-6 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Blog - Update</h4>
+			<form method="post" enctype="multipart/form-data" class="forms-sample">
+				<div class="form-group">
+					<label asp-for="@Model.Title">Title</label>
+					<input asp-for="@Model.Title" class="form-control" placeholder="Title">
+					<span asp-validation-for="@Model.Title"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="@Model.Subtitle">Subtitle</label>
+					<input asp-for="@Model.Subtitle" class="form-control" placeholder="Subtitle">
+					<span asp-validation-for="@Model.Subtitle"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="@Model.ImageFile">Image</label>
+					<input accept="image/" asp-for="@Model.ImageFile" class="form-control" placeholder="ImageFile">
+					<span class="text-danger" asp-validation-for="@Model.ImageFile"></span>
+				</div>
+				<button type="submit" class="btn btn-primary mr-2">Submit</button>
+				<button asp-controller="someBlog" asp-action="index" class="btn btn-light">Cancel</button>
+			</form>
+		</div>
+	</div>
+</div>

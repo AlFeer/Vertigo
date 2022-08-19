@@ -1,0 +1,33 @@
+﻿@model Room
+
+<div class="col-md-6 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Room - Create</h4>
+			<form method="post" enctype="multipart/form-data" class="forms-sample">
+				<div class="form-group">
+					<label asp-for="@Model.Title">Title</label>
+					<input asp-for="@Model.Title" class="form-control" placeholder="Title">
+					<span asp-validation-for="@Model.Title"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="@Model.Location">Location</label>
+					<input asp-for="@Model.Location" class="form-control" placeholder="Location">
+					<span asp-validation-for="@Model.Location"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="@Model.Description">Description</label>
+					<input asp-for="@Model.Description" class="form-control" placeholder="Description">
+					<span asp-validation-for="@Model.Description"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="@Model.ImageFile">Image</label>
+					<input accept="image/" asp-for="@Model.ImageFile" class="form-control" placeholder="ImageFile">
+					<span class="text-danger" asp-validation-for="@Model.ImageFile"></span>
+				</div>
+				<button type="submit" class="btn btn-primary mr-2">Submit</button>
+				<button asp-controller="sliderHome" asp-action="index" class="btn btn-danger">Cancel</button>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model SliderHome
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Home's Slider</h4>
+			<a asp-controller="sliderHome" asp-action="index" class="btn btn-primary">Go Back</a>
+			<a asp-controller="sliderHome" asp-action="create" class="btn btn-success">Create</a>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>
+								Image
+							</th>
+							<th>
+								Title
+							</th>
+							<th>
+								Subtitle
+							</th>
+							<th>
+								Settings
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="py-1">
+								<img src="/assets/uploads/images/@Model.ImageUrl" alt="image" />
+							</td>
+							<td>
+								@Model.Title
+							</td>
+							<td>
+								@Model.Subtitle
+							</td>
+							<td>
+								<a asp-controller="sliderHome" asp-action="update" asp-route-id="@Model.Id" class="btn btn-warning">Update</a>
+								<a asp-controller="sliderHome" asp-action="delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,238 @@
+﻿@model HomeVM
+
+<main>
+    <!-- Find your next stay -->
+    @foreach (var slider in Model.SlidersHome)
+    {
+        <div class="section-1">
+            <img src="/assets/uploads/images/@slider.ImageUrl" alt="">
+            <div class="container">
+                <p class="title text-light"><b>@slider.Title</b></p>
+                <p class="subtitle text-light">@slider.Subtitle</p>
+            </div>
+        </div>
+    }
+    <!-- Inputs -->
+    <div class="section-2">
+        <div class="container">
+            <div class="inputs">
+                <div class="box">
+                    <label>Check-in:</label> <br>
+                    <input type="date" placeholder="Check-in">
+                </div>
+                <div class="box">
+                    <label>Check-out:</label> <br>
+                    <input type="date" placeholder="Check-out">
+                </div>
+                <div class="box">
+                    <label>Adults:</label> <br>
+                    <input type="number" placeholder="2">
+                </div>
+                <div class="box">
+                    <label>Children:</label> <br>
+                    <input type="number" placeholder="0">
+                </div>
+                <div class="search">
+                    <a asp-controller="hotels" asp-action="index" class="btn btn-danger" style="padding-top: 7%">Search</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Promotions -->
+    @foreach (var promo in Model.Promotions)
+    {
+        <div class="section-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-12">
+                        <img class="advertisement" src="/assets/uploads/images/@promo.ImageUrl" alt="">
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <img class="advertisement" src="/assets/uploads/images/@promo.SecImageUrl" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+    <!-- Top Countries -->
+    <div class="section-4">
+        <div class="container">
+            <div class="topic">
+                <p><b>Top Countries To Visit</b></p>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-sm-6">
+                    <div class="card">
+                        <a asp-controller="blogSpain" asp-action="index">
+                            <img class="flag" src="/assets/images/Countries/spain-flag.png"
+                                 alt="">
+                        </a>
+                        <a class="title" asp-controller="blogSpain" asp-action="index"><b>Spain</b></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <div class="card">
+                        <a asp-controller="blogUK" asp-action="index">
+                            <img class="flag" src="/assets/images/Countries/uk-flag.png"
+                                 alt="">
+                        </a>
+                        <a class="title" asp-controller="blogUK" asp-action="index"><b>United Kingdom</b></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <div class="card">
+                        <a asp-controller="blogNorway" asp-action="index">
+                            <img class="flag" src="/assets/images/Countries/Norway-flag.png"
+                                 alt="">
+                        </a>
+                        <a class="title" asp-controller="blogNorway" asp-action="index"><b>Norway</b></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <div class="card">
+                        <a asp-controller="blogFrance" asp-action="index">
+                            <img class="flag" src="/assets/images/Countries/France-flag.png"
+                                 alt="">
+                        </a>
+                        <a class="title" asp-controller="blogFrance" asp-action="index"><b>France</b></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <div class="card">
+                        <a asp-controller="blogUSA" asp-action="index">
+                            <img class="flag" src="/assets/images/Countries/USA-flag.png"
+                                 alt="">
+                        </a>
+                        <a class="title" asp-controller="blogUSA" asp-action="index"><b>USA</b></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <div class="card">
+                        <a asp-controller="blogBrazil" asp-action="index">
+                            <img class="flag" src="/assets/images/Countries/brazil-flag.png"
+                                 alt="">
+                        </a>
+                        <a class="title" asp-controller="blogBrazil" asp-action="index"><b>Brazil</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Some Recomendations -->
+    <div class="section-5">
+        <div class="container">
+            <div class="topic">
+                <p><b>Some Recomendations For You</b></p>
+            </div>
+            <div class="row">
+                @foreach (var hotel in Model.SomeHotels)
+                {
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <img src="/assets/uploads/images/@hotel.ImageUrl" alt="">
+                            <span>
+                                @Html.Raw(hotel.Stars)
+                            </span>
+                            <a class="title" asp-controller="rooms" asp-action="index" asp-route-id="@hotel.Id"><b>@hotel.Name</b></a>
+                            <p class="subtitle">@hotel.Place</p>
+                            <hr>
+                            <p class="price">From: <b>$@hotel.Price</b> / night</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <!-- Blogs -->
+    <div class="section-6">
+        <div class="container">
+            <div class="topic">
+                <p><b><u>Get inspiration for your next trip</u></b></p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-12">
+                        <div class="card">
+                            <a href="">
+                                <img src="/assets/images/Guide/162689297(1).jpg" alt="">
+                                <div class="textOnImage">
+                                    <a class="title" asp-controller="blogPool" asp-action="index" ><b>5 breathtaking stays with private
+                                            pools</b></a>
+                                    <p class="subtitle">Enjoy your holiday reclining by your private infinity or
+                                        panoramic
+                                        plunge pool.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                        <div class="card">
+                            <a href="">
+                                <img src="/assets/images/Guide/disneyland(1).jpg" alt="">
+                                <div class="textOnImage">
+                                    <a class="title" asp-controller="blogDisneyland" asp-action="index"><b>5 reasons to visit Disneyland® Paris in
+                                            2022</b></a>
+                                    <p class="subtitle">Discover new rides, extravagant parades and meet childhood
+                                        heroes.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-12">
+                        <div class="card">
+                            <a href="">
+                                <img src="/assets/images/Guide/spanishCity.jpg" alt="">
+                                <div class="textOnImage">
+                                    <a class="title" asp-controller="blogSpain" asp-action="index"><b>6 destinations for a Spanish
+                                            sabbatical</b></a>
+                                    <p class="subtitle">Soak up the sun and forget your 9 to 5 in these Spanish
+                                        long-stays.</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="card2">
+                        <a href="">
+                            <img src="/assets/images/Guide/1161566238.jpg" alt="">
+                            <div class="textOnImage">
+                                <a class="title" asp-controller="blogBeach" asp-action="index">
+                                    <b>
+                                        The best city plus beach breaks in the
+                                        world
+                                    </b>
+                                </a>
+                                <p class="subtitle">
+                                    From busy streets to seaside, you will enjoy the best
+                                    of both
+                                    worlds.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="card2">
+                        <a href="">
+                            <img src="/assets/images/Guide/11pool.jpg" alt="">
+                            <div class="textOnImage">
+                                <a class="title" asp-controller="blogNYC" asp-action="index">
+                                    <b>
+                                        5 of New York City’s most rooftop
+                                        pools
+                                    </b>
+                                </a>
+                                <p class="subtitle">
+                                    From Williamsburg with Manhattan views to a luxury
+                                    oasis on Park Avenue.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>

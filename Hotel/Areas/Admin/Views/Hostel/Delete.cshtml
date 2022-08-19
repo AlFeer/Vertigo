@@ -1,0 +1,18 @@
+﻿@model Hotels
+
+<div class="col-md-6 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Hotel - Update</h4>
+			<form method="post" enctype="multipart/form-data" class="forms-sample">
+				<div class="form-group">
+					<label asp-for="@Model.Name">Title</label>
+					<input asp-for="@Model.Name" class="form-control" placeholder="Title">
+					<span asp-validation-for="@Model.Name"></span>
+				</div>
+				<button type="submit" class="btn btn-primary mr-2">Submit</button>
+				<button asp-controller="hotels" asp-action="index" class="btn btn-light">Cancel</button>
+			</form>
+		</div>
+	</div>
+</div>

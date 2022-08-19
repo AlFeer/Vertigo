@@ -1,0 +1,38 @@
+﻿@model Hotels
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Hotel - Create</h4>
+            <form method="post" enctype="multipart/form-data" class="forms-sample">
+                <div class="form-group">
+                    <label asp-for="@Model.Name">Name</label>
+                    <input asp-for="@Model.Name" class="form-control" placeholder="Name">
+                    <span asp-validation-for="@Model.Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Place">Place</label>
+                    <input asp-for="@Model.Place" class="form-control" placeholder="Place">
+                    <span asp-validation-for="@Model.Place"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Stars">Stars</label>
+                    <input asp-for="@Model.Stars" class="form-control" placeholder="Stars">
+                    <span asp-validation-for="@Model.Stars"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Price">Price</label>
+                    <input asp-for="@Model.Price" class="form-control" placeholder="Price">
+                    <span asp-validation-for="@Model.Price"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.ImageFile">Image</label>
+                    <input accept="image/" asp-for="@Model.ImageFile" class="form-control" placeholder="ImageFile">
+                    <span class="text-danger" asp-validation-for="@Model.ImageFile"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <button asp-controller="hotels" asp-action="index" class="btn btn-danger">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+﻿@model AboutVM
+
+<main>
+    @foreach (var slider in Model.SliderAbouts)
+    {
+        <div class="about-1">
+            <img src="/assets//uploads/images/@slider.ImageUrl" alt="">
+        </div>
+    }
+    <div class="about-2">
+        <div class="container">
+            <p class="title"><b>About the company</b></p>
+            <p class="subtitle">
+                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, cons, adipisci
+                velit, sed quia non
+                numquam eius modi ullma tempora incidunt ut labore et dolore magnam aliquam quaerat fruitr
+                voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem. Itaque earum rerum hic tea
+                sapiente delectus, ut aut reiciendis voluptatibus.
+            </p>
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
+                    <p class="title2"><b>Our mission</b></p>
+                    <p class="subtitle">
+                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+                        doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
+                        quasi architecto beatae vitae dicta sunt explicabo. Quis nostrud kemmith exercitation
+                        ullamco laboris nisi ut aliquip.
+                    </p>
+                    <p class="subtitle">Excepteur sint occaecat cupidatat non proident.</p>
+                    <p class="subtitle">Quis autem vel eum iure reprehende qui in ea.</p>
+                    <p class="subtitle">
+                        At vero eos accusamus iusto odio dignissimos.
+                    </p>
+                </div>
+                <div class="col-lg-6 col-sm-12">
+                    <p class="title2"><b>Our mission</b></p>
+                    <p class="subtitle">
+                        Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                        officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error
+                        sit voluptatem accusantium doloremque laudantium minima veniam.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about-3">
+        <div class="container">
+            <p class="title"><b>What our clients say</b></p>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card">
+                        <p class="lorem">
+                            “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa amet
+                            condimentum in
+                            pretium.
+                            Montes tristique amet pellentesque ut fames condimentum.”
+                        </p>
+                        <span>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <p class="person"><b>Darlene Robertson</b></p>
+                        <p class="place">Customers in U.S.A</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <p class="lorem">
+                            “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa amet
+                            condimentum in
+                            pretium.
+                            Montes tristique amet pellentesque ut fames condimentum.”
+                        </p>
+                        <span>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <p class="person"><b>Darlene Robertson</b></p>
+                        <p class="place">Customers in U.S.A</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card">
+                        <p class="lorem">
+                            “Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa amet
+                            condimentum in
+                            pretium.
+                            Montes tristique amet pellentesque ut fames condimentum.”
+                        </p>
+                        <span>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                            <i class="fas fa-star checked"></i>
+                        </span>
+                        <p class="person"><b>Darlene Robertson</b></p>
+                        <p class="place">Customers in U.S.A</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about-4">
+        <div class="container">
+            <p class="title"><b>Our Team</b></p>
+            <div class="row">
+                @foreach (var team in Model.Teams)
+               {
+                   <div class="col-lg-3">
+                    <img src="/assets/uploads/images/@team.ImageUrl" alt="">
+                    <p class="name"><b>@team.Fullname</b></p>
+                    <p class="job">@team.Job</p>
+                </div>
+               }
+            </div>
+        </div>
+    </div>
+</main>

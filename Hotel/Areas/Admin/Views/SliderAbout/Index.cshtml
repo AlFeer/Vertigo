@@ -1,0 +1,41 @@
+﻿@model List<SliderAbout>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Promotion</h4>
+            <a asp-controller="dashboard" asp-action="index" class="btn btn-primary">Go Back</a>
+			<a asp-controller="sliderAbout" asp-action="create" class="btn btn-success">Create</a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var slider in Model)
+                        {
+                            <tr>
+                                <td class="py-1">
+                                    <img src="/assets/uploads/images/@slider.ImageUrl" alt="image" />
+                                </td>
+                                <td>
+									<a asp-controller="sliderAbout" asp-action="details" asp-route-id="@slider.Id" class="btn btn-primary">Details</a>
+									<a asp-controller="sliderAbout" asp-action="update" asp-route-id="@slider.Id" class="btn btn-warning">Update</a>
+									<a asp-controller="sliderAbout" asp-action="delete" asp-route-id="@slider.Id" class="btn btn-danger">Delete</a>
+								</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

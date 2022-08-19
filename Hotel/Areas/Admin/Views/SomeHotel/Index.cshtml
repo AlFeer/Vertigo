@@ -1,0 +1,65 @@
+﻿@model List<SomeHotel>
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Blogs</h4>
+            <a asp-controller="dashboard" asp-action="index" class="btn btn-primary">Go Back</a>
+            <a asp-controller="someHotel" asp-action="create" class="btn btn-success">Create</a>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Image
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Place
+                            </th>
+                            <th>
+                                Stars
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Settings
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var someHotel in Model)
+                        {
+                            <tr>
+                                <td class="py-1">
+                                    <img src="/assets/uploads/images/@someHotel.ImageUrl" alt="image" />
+                                </td>
+                                <td>
+                                    @someHotel.Name
+                                </td>
+                                <td>
+                                    @someHotel.Place
+                                </td>
+                                <td>
+                                    @Html.Raw(someHotel.Stars)
+                                </td>
+                                <td>
+                                    @someHotel.Price
+                                </td>
+                                <td>
+                                    <a asp-controller="someBlog" asp-action="details" asp-route-id="@someHotel.Id" class="btn btn-primary">Details</a>
+                                    <a asp-controller="someBlog" asp-action="update" asp-route-id="@someHotel.Id" class="btn btn-warning">Update</a>
+                                    <a asp-controller="someBlog" asp-action="delete" asp-route-id="@someHotel.Id" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

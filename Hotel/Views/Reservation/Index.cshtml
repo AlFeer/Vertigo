@@ -1,0 +1,79 @@
+﻿@model Reservation
+
+
+<main>
+    <div class="container">
+        <div class="booking">
+            <div asp-validation-summary="ModelOnly"></div>
+
+            <p class="title"><b>Bank Account Information</b></p>
+            <div class="row">
+                <div class="card">
+                    <p>Account Name: <b>Jack Sparrow</b></p>
+                    <p>Account Number: <b>0123458741254</b></p>
+                    <p>Bank Name: <b>HSBC Private International Bank</b></p>
+                    <p>SWIFT Code: <b>12312</b></p>
+                    <p class="please">Please contact the admin for payment confirmation!</p>
+                </div>
+            </div>
+
+            <p class="title"><b>Booking Submission</b></p>
+            <form method="post" enctype="multipart/form-data" class="pt-3">
+                <div class="inputs">
+                    <div class="box">
+                        <label asp-for="@Model.Fullname">Fullname <span>*</span></label> <br>
+                        <input asp-for="@Model.Fullname" type="text" placeholder="Fullname">
+                        <span class="text-danger" asp-validation-for="@Model.Fullname"></span>
+                    </div>
+                    <div class="box">
+                        <label asp-for="@Model.Username">Username<span>*</span></label> <br>
+                        <input asp-for="@Model.Username" type="text" placeholder="Username">
+                        <span class="text-danger" asp-validation-for="@Model.Username"></span>
+                    </div>
+                    <div class="box">
+                        <label asp-for="@Model.Email">Email <span>*</span></label> <br>
+                        <input asp-for="@Model.Email" type="text" placeholder="Email">
+                        <span class="text-danger" asp-validation-for="@Model.Email"></span>
+                    </div>
+                    <div class="box">
+                        <label asp-for="@Model.PhoneNumber">Phone Number <span>*</span></label> <br>
+                        <input asp-for="@Model.PhoneNumber" type="number" placeholder="0">
+                        <span class="text-danger" asp-validation-for="@Model.PhoneNumber"></span>
+                    </div>
+                    <div class="box">
+                        <label asp-for="@Model.CheckIn">Check-in <span>*</span></label> <br>
+                        <input asp-for="@Model.CheckIn" type="date" placeholder="Check-in">
+                        <span class="text-danger" asp-validation-for="@Model.CheckIn"></span>
+                    </div>
+                    <div class="box">
+                        <label asp-for="@Model.CheckOut">Check-out <span>*</span></label> <br>
+                        <input asp-for="@Model.CheckOut" type="date" placeholder="Check-out">
+                        <span class="text-danger" asp-validation-for="@Model.CheckOut"></span>
+                    </div>
+                    <div class="box">
+                        <label asp-for="@Model.Adult">Adults <span>*</span></label> <br>
+                        <input asp-for="@Model.Adult" type="number" placeholder="2">
+                        <span class="text-danger" asp-validation-for="@Model.Adult"></span>
+                    </div>
+                    <div class="box">
+                        <label asp-for="@Model.Children">Children <span>*</span></label> <br>
+                        <input asp-for="@Model.Children" type="number" placeholder="0">
+                        <span class="text-danger" asp-validation-for="@Model.Children"></span>
+                    </div><br>
+                </div>
+                <div class="pt-5 pb-5">
+                    <input type="checkbox">
+                    I agree to all Terms & Conditions
+                </div>
+                <div class="button">
+                    <div class="mt-4 mr-4">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+
+    </div>
+</main>

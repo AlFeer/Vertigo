@@ -1,0 +1,45 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Mvc.Common
+
+@model PagedList<Hotels>
+
+
+<main>
+    <div class="section-5">
+        <div class="container">
+            <div class="row">
+                @foreach (var hotel in Model)
+                {
+                    <div class="col-lg-3 col-sm-6 hotels">
+                        <div class="card">
+                            <img src="/assets/uploads/images/@hotel.ImageUrl" alt="">
+                            <span>
+                                @Html.Raw(hotel.Stars)
+                            </span>
+                            <a class="title" asp-controller="rooms" asp-action="index" asp-route-id="@hotel.Id"><b>@hotel.Name</b></a>
+                            <p class="subtitle">@hotel.Place</p>
+                            <hr>
+                            <p class="price">From: <b>$@hotel.Price</b> / night</p>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="pull-right d-flex justify-content-center">
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",
+                new
+                {
+                page,
+                search = Context.Request.Query["search"]
+                }),
+                new PagedListRenderOptionsBase
+                {
+                LiElementClasses = new string[] { "page-item" },
+                PageClasses = new string[] { "page-link" },
+                Display = PagedListDisplayMode.IfNeeded
+                })
+            </div>
+        </div>
+    </div>
+</main>
