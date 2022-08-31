@@ -42,7 +42,7 @@
                         @if (User.Identity.IsAuthenticated)
 					{
 						<li>
-							<a class="nav-link text-light" style="font-size:16px;" asp-controller="account" asp-area="profile">@User.Identity.Name</a>
+							<a class="nav-link text-light" style="font-size:16px;" asp-area="admin" asp-controller="dashboard" asp-action="index">@User.Identity.Name</a>
 						</li>
 						<li>
 							<a class="nav-link"  asp-controller="account" asp-action="logout"  style="font-size:16px; color: rgb(247, 169, 12);">LOGOUT</a>

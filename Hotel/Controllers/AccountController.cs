@@ -68,8 +68,14 @@ namespace Hotel.Controllers
 		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Login(LoginVM login)
 		{
+
+			if (!ModelState.IsValid)
+			{
+				return View(login);
+			}
 			AppUser user = await _userManager.FindByEmailAsync(login.Email);
 			SignInResult result = await _signInManager.PasswordSignInAsync(user, login.Password, false, true);
+
 			return RedirectToAction("Index", "Home");
 		}
 	}

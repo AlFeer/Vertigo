@@ -841,6 +841,201 @@ footer {
     }
 }
 
+@media (max-width: 1000px) {
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .toggle {
+            display: flex;
+        }
+
+        .navbar-links {
+            display: none;
+            width: 100%;
+
+            ul {
+                flex-direction: column;
+                width: 100%;
+
+                li {
+                    text-align: center;
+
+                    button {
+                        margin-top: 15px;
+                    }
+                }
+            }
+
+        }
+
+        .navbar-links.active {
+            display: flex;
+        }
+    }
+
+    .section-1 {
+        .container {
+            transform: scale(0.94);
+            animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            transform: translate(-50%, -50%);
+
+            .title {
+                padding-top: 10%;
+                font-size: 30px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .section-2 {
+
+        width: 100%;
+        color: white;
+        background-color: rgb(247, 169, 12);
+
+        input {
+            width: 80%;
+            padding: 5px;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .inputs {
+            padding-left: 20%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 4px;
+        }
+
+        .search {
+            padding: 10px;
+
+            .btn {
+                width: 200%;
+                height: 100%;
+            }
+        }
+    }
+
+    .section-3 {
+
+        padding-top: 10%;
+
+        .advertisement {
+            width: 90%;
+        }
+
+        .advertisement2 {
+            width: 90%;
+            padding-top: 5%;
+        }
+    }
+
+    .section-6 {
+        padding-top: 2%;
+        padding-bottom: 5%;
+        background-color: rgb(245, 245, 245);
+
+        .topic {
+            font-size: 30px;
+            padding-bottom: 5%;
+        }
+
+        .card {
+            position: relative;
+            text-align: center;
+            color: white;
+
+            img {
+                width: 100%;
+            }
+
+            .textOnImage {
+                background-color: rgba(0, 0, 0, 0.464);
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                left: 0;
+
+                .title {
+                    font-size: 25px;
+                    color: white;
+                }
+            }
+
+        }
+
+        .card2 {
+            position: relative;
+            text-align: center;
+            color: white;
+            margin-top: 2%;
+            margin-bottom: 2%;
+
+            img {
+                width: 100%;
+                height: 50%;
+            }
+
+            .textOnImage {
+                background-color: rgba(0, 0, 0, 0.464);
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                left: 0;
+
+                .title {
+                    font-size: 25px;
+                    color: white;
+                }
+            }
+
+        }
+
+        .card:hover {
+            .textOnImage {
+                background-color: rgba(0, 0, 0, 0.464);
+                position: absolute;
+                bottom: 0;
+                top: 0;
+                padding-top: 50%;
+                transition: 1s;
+
+                .title {
+                    font-size: 25px;
+                    color: white;
+                }
+            }
+        }
+
+        .card2:hover {
+            .textOnImage {
+                background-color: rgba(0, 0, 0, 0.464);
+                position: absolute;
+                bottom: 0;
+                top: 0;
+                padding-top: 20%;
+                transition: 1s;
+
+                .title {
+                    font-size: 25px;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 800px) {
 
     .navbar {
@@ -875,55 +1070,26 @@ footer {
         }
     }
 
-    .section-2 {
-
-        width: 100%;
-        color: white;
-        background-color: rgb(247, 169, 12);
-
-        input {
-            width: 80%;
-            padding: 5px;
-        }
-
+    .section-1 {
         .container {
-            display: flex;
-        }
+            transform: scale(0.94);
+            animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            transform: translate(-50%, -50%);
 
-        .inputs {
-            padding-left: 23%;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 4px;
-        }
+            .title {
+                padding-top: 10%;
+                font-size: 30px;
+            }
 
-        .search {
-            margin-left: 50%;
-            padding: 10px;
-
-            .btn {
-                width: 200%;
-                height: 100%;
+            .subtitle {
+                font-size: 16px;
             }
         }
     }
 
-    .section-3 {
-
-        padding-top: 10%;
-
-        .advertisement {
-            width: 90%;
-        }
-
-        .advertisement2 {
-            width: 90%;
-            padding-top: 5%;
-        }
-    }
-}
-
-@media (max-width: 650px) {
     .section-2 {
 
         width: 100%;
@@ -947,13 +1113,170 @@ footer {
         }
 
         .search {
-            margin-left: 50%;
             padding: 10px;
 
             .btn {
                 width: 200%;
                 height: 100%;
             }
+        }
+    }
+
+    .section-3 {
+
+        padding-top: 10%;
+
+        .advertisement {
+            width: 90%;
+        }
+
+        .advertisement2 {
+            width: 90%;
+            padding-top: 5%;
+        }
+    }
+
+    .section-6 {
+        padding-top: 2%;
+        padding-bottom: 5%;
+        background-color: rgb(245, 245, 245);
+
+        .topic {
+            font-size: 30px;
+            padding-bottom: 5%;
+        }
+
+        .card {
+            position: relative;
+            text-align: center;
+            color: white;
+
+            img {
+                width: 100%;
+            }
+
+            .textOnImage {
+                background-color: rgba(0, 0, 0, 0.464);
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                left: 0;
+
+                .title {
+                    font-size: 25px;
+                    color: white;
+                }
+            }
+
+        }
+
+        .card2 {
+            position: relative;
+            text-align: center;
+            color: white;
+            margin-top: 2%;
+            margin-bottom: 2%;
+
+            img {
+                width: 100%;
+                height: 50%;
+            }
+
+            .textOnImage {
+                background-color: rgba(0, 0, 0, 0.464);
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                left: 0;
+
+                .title {
+                    font-size: 25px;
+                    color: white;
+                }
+            }
+
+        }
+
+        .card:hover {
+            .textOnImage {
+                background-color: rgba(0, 0, 0, 0.464);
+                position: absolute;
+                bottom: 0;
+                top: 0;
+                padding-top: 50%;
+                transition: 1s;
+
+                .title {
+                    font-size: 25px;
+                    color: white;
+                }
+            }
+        }
+
+        .card2:hover {
+            .textOnImage {
+                background-color: rgba(0, 0, 0, 0.464);
+                position: absolute;
+                bottom: 0;
+                top: 0;
+                padding-top: 20%;
+                transition: 1s;
+
+                .title {
+                    font-size: 25px;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 650px) {
+    .section-1 {
+        .container {
+            transform: scale(0.94);
+            animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+            position: absolute;
+            top: 20%;
+            transform: translate(-50%, -50%);
+
+            .title {
+                padding-top: 10%;
+                font-size: 20px;
+            }
+
+            .subtitle {
+                font-size: 10px;
+            }
+        }
+    }
+
+    .section-2 {
+
+        width: 100%;
+        color: white;
+        background-color: rgb(247, 169, 12);
+
+        input {
+            width: 80%;
+            padding: 5px;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .inputs {
+            padding-left: 20%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 4px;
+        }
+
+        .search {
+            padding-left: 40%;
+            padding: 10px;
+
         }
     }
 }
@@ -975,20 +1298,55 @@ footer {
         }
 
         .inputs {
-            padding-left: 15%;
+            padding-left: 20%;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 4px;
         }
 
         .search {
-            margin-left: 50%;
+            padding-left: 40%;
             padding: 10px;
 
-            .btn {
-                width: 200%;
-                height: 100%;
-            }
+        }
+    }
+
+    footer {
+        background-color: darkblue;
+        padding-top: 3%;
+        padding-bottom: 1%;
+
+        .topic {
+            color: rgb(247, 169, 12);
+            font-size: 20px;
+        }
+
+        .list {
+            color: lightgray;
+        }
+
+        .list:hover {
+            color: rgb(247, 169, 12);
+            text-decoration: none;
+        }
+
+        .vk {
+            border-radius: 50%;
+            width: 7%;
+        }
+
+        .hr {
+            border-top: 1px solid orange;
+        }
+
+        .copyright {
+            color: lightgray;
+            font-size: 10px;
+        }
+
+        .payment {
+            margin-left: 40%;
+            width: 60%;
         }
     }
 }

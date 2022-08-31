@@ -1,6 +1,7 @@
 ﻿using Business.Services;
 using DAL.Data;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.Areas.Admin.Controllers
 {
+    [Authorize]
     [Area("Admin")]
     public class RoomController : Controller
     {

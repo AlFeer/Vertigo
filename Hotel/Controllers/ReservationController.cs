@@ -1,6 +1,7 @@
 ﻿using DAL.Data;
 using DAL.Models;
 using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MimeKit;
@@ -26,15 +27,15 @@ namespace Hotel.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Index(AppUser user)
+        public IActionResult Index(Reservation user)
         {
             if (!ModelState.IsValid)
             {
                 return View(user);
             }
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("Vertigo 22", "vertigohotels@gmail.com"));
-            message.To.Add(new MailboxAddress(user.UserName, user.Email));
+            message.From.Add(new MailboxAddress("Vertigo", "vertigohotels@gmail.com"));
+            message.To.Add(new MailboxAddress(user.Username, user.Email));
             message.Subject = "Reservation mail";
             message.Body = new TextPart("plain")
             {
@@ -44,7 +45,7 @@ namespace Hotel.Controllers
             using ( var client = new SmtpClient())
             {
                 client.Connect("smtp.gmail.com", 587, false);
-                client.Authenticate("vertigohotels@gmail.com", "tdtiujtvrkxxtads");
+                client.Authenticate("vertigohotels@gmail.com", "rwctclgbmwiobsiv");
                 client.Send(message);
                 client.Disconnect(true);
             }

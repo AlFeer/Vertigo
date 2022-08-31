@@ -1,5 +1,6 @@
 ﻿using Business.Services;
 using DAL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Hotel.Areas.Admin.Controllers
 {
+    [Authorize]
     [Area("Admin")]
     public class SliderHomeController : Controller
     {
@@ -138,6 +140,7 @@ namespace Hotel.Areas.Admin.Controllers
 
 
             sliderHome.ImageUrl = newFileName;
+            data.ImageUrl = sliderHome.ImageUrl;
             data.Title = sliderHome.Title;
             data.Subtitle = sliderHome.Subtitle;
             sliderHome.UpdatedDate = DateTime.Now;
